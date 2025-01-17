@@ -4,7 +4,7 @@ public class PlayerMovememnnt : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 10f;
     private float moveX = 0f; // Horizontal movement
     private float moveY = 0f; // Vertical movement
 
@@ -22,8 +22,8 @@ public class PlayerMovememnnt : MonoBehaviour
 
         // Get input for movement
         if (Input.GetKey(KeyCode.W)) moveY = 1f;
-        if (Input.GetKey(KeyCode.S)) moveY = -1f;
-        if (Input.GetKey(KeyCode.A)) moveX = -1f;
+        if (Input.GetKey(KeyCode.A)) moveY = -1f;
+        if (Input.GetKey(KeyCode.S)) moveX = -1f;
         if (Input.GetKey(KeyCode.D)) moveX = 1f;
 
         // Normalize movement

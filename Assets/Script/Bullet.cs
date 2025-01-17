@@ -2,18 +2,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f; // Bullet speed
-    private Vector3 direction;
+    [SerializeField] private Vector3 direction = Vector3.zero;
+    [SerializeField] private float bulletSpeed = 10f; 
 
-    private void Start()
+    // Sets the movement direction of the bullet
+    public void SetDirection(Vector3 newDirection)
     {
-        // Set the initial movement direction based on the bullet's forward direction
-        direction = transform.forward.normalized;
+        direction = newDirection.normalized; // Ensure the direction is normalized
+    }
+
+    // Sets the speed of the bullet
+    public void SetBulletSpeed(float newBulletSpeed)
+    {
+        bulletSpeed = Mathf.Max(0, newBulletSpeed); // Prevent negative speed
     }
 
     private void Update()
     {
-        // Move the bullet forward in the specified direction
-        transform.Translate(direction * speed * Time.deltaTime, Space.World);
+        // Only move the bullet if a direction is set
+        if (direction != Vector3.zero)
+        {
+            transform.position += direction * bulletSpeed * Time.deltaTime;
+        }
     }
 }

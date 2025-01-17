@@ -19,7 +19,7 @@ public class PowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject); // Destroy the power-up after collision
-        }
+        }  
     }
 }
 
